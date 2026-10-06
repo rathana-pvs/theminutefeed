@@ -1,7 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 
-const SOURCE_URL = 'https://pulefeed.tech'
+const SOURCE_URL = 'https://www.pulefeed.tech'
 
 async function scrapeAndPrepare() {
   console.log(`📡 Fetching latest 40 articles from ${SOURCE_URL}/api/articles?limit=40&sort=-publishedAt&depth=2 ...`)
@@ -35,20 +35,20 @@ async function scrapeAndPrepare() {
 
     // Handle Author
     let authorData = {
-      name: 'thedcminute Editorial Desk',
-      slug: 'thedcminute-editorial',
+      name: 'The Minute Feed Editorial Desk',
+      slug: 'theminutefeed-editorial',
       role: 'Senior Newsroom Desk',
-      bio: 'Latest breaking political and international reporting from the thedcminute news team.',
-      email: 'news@thedcminute.com',
+      bio: 'Latest breaking political and international reporting from The Minute Feed news team.',
+      email: 'news@theminutefeed.com',
     }
 
     if (raw.author && typeof raw.author === 'object' && raw.author.name) {
       authorData = {
-        name: raw.author.name === 'Toch Media' ? 'thedcminute Newsroom' : raw.author.name,
-        slug: raw.author.slug || 'thedcminute-newsroom',
+        name: (raw.author.name === 'Toch Media' || raw.author.name === 'Pulefeed Newsroom') ? 'The Minute Feed Newsroom' : raw.author.name,
+        slug: raw.author.slug || 'theminutefeed-newsroom',
         role: raw.author.role || 'Staff Reporter',
         bio: raw.author.bio || 'Comprehensive news coverage and analysis from our correspondents.',
-        email: raw.author.email || 'news@thedcminute.com',
+        email: raw.author.email || 'news@theminutefeed.com',
       }
     }
     authorMap.set(authorData.slug, authorData)
@@ -77,8 +77,21 @@ async function scrapeAndPrepare() {
           const arrayBuffer = await imgRes.arrayBuffer()
           const buffer = Buffer.from(arrayBuffer)
           const contentType = imgRes.headers.get('content-type') || 'image/jpeg'
-          mimeType = contentType.includes('png') ? 'image/png' : 'image/jpeg'
-          const ext = mimeType === 'image/png' ? 'png' : 'jpg'
+          
+          let ext = 'jpg'
+          if (contentType.includes('webp') || imageUrl.endsWith('.webp')) {
+            mimeType = 'image/webp'
+            ext = 'webp'
+          } else if (contentType.includes('png') || imageUrl.endsWith('.png')) {
+            mimeType = 'image/png'
+            ext = 'png'
+          } else if (contentType.includes('gif') || imageUrl.endsWith('.gif')) {
+            mimeType = 'image/gif'
+            ext = 'gif'
+          } else {
+            mimeType = 'image/jpeg'
+            ext = 'jpg'
+          }
           
           localFilename = `pulefeed-scraped-${i + 1}-${Date.now()}.${ext}`
           const localFilePath = path.join(mediaDir, localFilename)
@@ -132,7 +145,7 @@ async function scrapeAndPrepare() {
         filesize: imageFilesize,
         source: localFilename ? 'local' : 'external',
       },
-      credit: raw.credit || 'thedcminute Wire Service',
+      credit: raw.credit || 'The Minute Feed Wire Service',
       author: authorData,
       tags: tags,
       status: 'published',

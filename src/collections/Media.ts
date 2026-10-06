@@ -108,7 +108,7 @@ export const Media: CollectionConfig = {
       name: 'alt',
       type: 'text',
       required: false,
-      defaultValue: 'thedcminute',
+      defaultValue: 'The Minute Feed',
       admin: {
         description: 'Alt text for accessibility and SEO',
       },

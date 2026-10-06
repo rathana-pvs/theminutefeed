@@ -10,18 +10,18 @@ import { VisitorCounter } from '@/components/layout/VisitorCounter'
 import { getBreakingArticles } from '@/lib/api-server'
 
 const envUrl = process.env.NEXT_PUBLIC_SITE_URL
-const siteUrl = envUrl && !envUrl.includes('placeholder.com') ? envUrl : 'https://thedcminute.com'
-const siteName = process.env.NEXT_PUBLIC_SITE_NAME || 'thedcminute'
+const siteUrl = envUrl && !envUrl.includes('placeholder.com') ? envUrl : 'https://theminutefeed.com'
+const siteName = process.env.NEXT_PUBLIC_SITE_NAME || 'The Minute Feed'
 const adskeeperSiteId = process.env.NEXT_PUBLIC_ADS_KEEPER_SITE_ID
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: `${siteName} — US Policy, Governance, Global Affairs & Economy`,
+    default: `${siteName} — News that respects your time`,
     template: `%s — ${siteName}`,
   },
-  description: 'Independent reporting and authoritative analysis on US policy, governance, legislation, defense, and international affairs.',
-  keywords: ['news', 'politics', 'us policy', 'policy', 'governance', 'legislation', 'congress', 'white house', 'economy', 'world news'],
+  description: 'Fast, clear, independent reporting on the stories shaping politics, business, technology, culture, climate, and the world.',
+  keywords: ['breaking news', 'world news', 'politics', 'business', 'technology', 'culture', 'climate', 'analysis', 'The Minute Feed'],
   openGraph: {
     siteName,
     type: 'website',

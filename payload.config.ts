@@ -32,7 +32,7 @@ import { Media } from './src/collections/Media'
 import { Users } from './src/collections/Users'
 import { ShareLinks } from './src/collections/ShareLinks'
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://thedcminute.com'
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://theminutefeed.com'
 
 export default buildConfig({
   sharp,
@@ -42,7 +42,7 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
     meta: {
-      titleSuffix: '— thedcminute CMS',
+      titleSuffix: '— The Minute Feed CMS',
     },
     theme: 'dark',
   },
@@ -76,14 +76,14 @@ export default buildConfig({
   },
   db: postgresAdapter({
     pool: {
-      connectionString: process.env.DATABASE_URI || 'postgresql://thedcminute:thedcminute_pass_123@localhost:5438/thedcminute',
+      connectionString: process.env.DATABASE_URI || 'postgresql://theminutefeed:theminutefeed_pass_123@localhost:5440/theminutefeed',
     },
   }),
   plugins: [
     seoPlugin({
       collections: ['articles'],
       uploadsCollection: 'media',
-      generateTitle: ({ doc }: { doc: any }) => doc?.title ? `${doc.title} — thedcminute` : 'thedcminute',
+      generateTitle: ({ doc }: { doc: any }) => doc?.title ? `${doc.title} — The Minute Feed` : 'The Minute Feed',
       generateDescription: ({ doc }: { doc: any }) => doc?.excerpt || '',
     }),
     (config) => {
@@ -133,12 +133,12 @@ export default buildConfig({
   ],
   cors: [
     siteUrl,
-    'https://thedcminute.com',
-    'https://www.thedcminute.com',
+    'https://theminutefeed.com',
+    'https://www.theminutefeed.com',
   ],
   csrf: [
     siteUrl,
-    'https://thedcminute.com',
-    'https://www.thedcminute.com',
+    'https://theminutefeed.com',
+    'https://www.theminutefeed.com',
   ],
 })

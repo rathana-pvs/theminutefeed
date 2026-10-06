@@ -3,13 +3,13 @@
 @tailwind utilities;
 
 :root {
-  --bbc-red: #b80000;
-  --ink: #141414;
+  --bbc-red: #f04438;
+  --ink: #151526;
   --muted: #545454;
   --quiet: #707070;
   --line: #d2d2d2;
   --soft-line: #e6e6e6;
-  --surface: #f6f6f6;
+  --surface: #f5f5fa;
   --white: #ffffff;
   --content-width: 1280px;
   --reading-width: 720px;
@@ -24,10 +24,10 @@
   --text-primary: #141414;
   --text-secondary: #545454;
   --text-muted: #707070;
-  --accent-red: #b80000;
-  --accent-red-bright: #d10000;
-  --accent-gold: #b80000;
-  --accent-blue: #0f58d6;
+  --accent-red: #f04438;
+  --accent-red-bright: #ff5a4e;
+  --accent-gold: #ffb020;
+  --accent-blue: #5b4ee8;
   --border: #d2d2d2;
   --border-subtle: #e6e6e6;
 }
@@ -69,39 +69,39 @@ a:focus-visible, button:focus-visible, input:focus-visible { outline: 3px solid 
   opacity: 0.85;
 }
 
-.brand-blocks {
-  display: inline-flex;
-  align-items: center;
+.brand-mark {
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
   gap: 3px;
+  padding: 7px;
+  background: var(--ink);
+  border-radius: 50%;
 }
 
-.brand-blocks span {
-  width: 32px;
-  height: 32px;
-  display: grid;
-  place-items: center;
-  background: #000000;
-  color: #ffffff;
-  font-family: var(--font-sans);
-  font-size: 1.25rem;
-  font-weight: 900;
-  line-height: 1;
-  border-radius: 2px;
-  letter-spacing: -0.02em;
+.brand-mark span {
+  width: 4px;
+  background: var(--white);
+  border-radius: 99px;
 }
+
+.brand-mark span:nth-child(1) { height: 9px; }
+.brand-mark span:nth-child(2) { height: 18px; background: var(--accent-red); }
+.brand-mark span:nth-child(3) { height: 13px; }
 
 .brand-wordmark {
   font-family: var(--font-sans);
-  font-size: 0.82rem;
-  font-weight: 800;
-  letter-spacing: 0.14em;
+  font-size: 1rem;
+  font-weight: 900;
+  letter-spacing: -0.035em;
   color: var(--ink);
-  text-transform: uppercase;
-  border-left: 1.5px solid var(--line);
-  padding-left: 0.65rem;
   line-height: 1.1;
   white-space: nowrap;
 }
+
+.brand-wordmark > span { color: var(--accent-red); }
 
 .footer-brand-logo {
   justify-self: start;
@@ -444,8 +444,11 @@ a:hover .story-title, .story-title-link:hover { text-decoration: underline; }
   .icon-button { min-width: 36px; min-height: 36px; padding: .35rem; }
   .icon-button span { display: none; }
   .site-brand-logo { gap: .45rem; }
-  .brand-blocks span { width: 28px; height: 28px; font-size: 1.1rem; }
-  .brand-wordmark { font-size: .68rem; letter-spacing: .08em; padding-left: .45rem; }
+  .brand-mark { width: 30px; height: 30px; padding: 6px; }
+  .brand-mark span:nth-child(1) { height: 8px; }
+  .brand-mark span:nth-child(2) { height: 16px; }
+  .brand-mark span:nth-child(3) { height: 11px; }
+  .brand-wordmark { font-size: .84rem; }
   .menu-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1.5rem; }
   .channel-list { justify-content: flex-start; }
   .live-strip-inner { min-height: 36px; }

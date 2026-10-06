@@ -1,7 +1,7 @@
 import { ImageResponse } from 'next/og'
 
 export const runtime = 'edge'
-export const alt = 'thedcminute — Authoritative US Policy, Governance & World News'
+export const alt = 'The Minute Feed — News that respects your time'
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 
@@ -16,7 +16,7 @@ export default function Image() {
           flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
-          background: '#0d0d0d',
+          background: '#151526',
           position: 'relative',
           fontFamily: 'sans-serif',
         }}
@@ -29,66 +29,54 @@ export default function Image() {
             left: 0,
             right: 0,
             height: '4px',
-            background: '#ffffff',
+            background: '#f04438',
           }}
         />
 
-        {/* 3-block Logo mark: D C M */}
+        {/* Feed pulse brand mark */}
         <div
           style={{
             display: 'flex',
             alignItems: 'center',
-            gap: '8px',
+            gap: '7px',
             marginBottom: '32px',
           }}
         >
           <div
             style={{
-              width: '72px',
-              height: '72px',
+              width: '12px',
+              height: '38px',
               background: '#ffffff',
-              color: '#000000',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              fontSize: '44px',
-              fontWeight: 900,
-              borderRadius: '4px',
+              borderRadius: '999px',
             }}
           >
-            D
           </div>
           <div
             style={{
-              width: '72px',
+              width: '12px',
               height: '72px',
-              background: '#ffffff',
-              color: '#000000',
+              background: '#f04438',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              fontSize: '44px',
-              fontWeight: 900,
-              borderRadius: '4px',
+              borderRadius: '999px',
             }}
           >
-            C
           </div>
           <div
             style={{
-              width: '72px',
-              height: '72px',
+              width: '12px',
+              height: '52px',
               background: '#ffffff',
-              color: '#000000',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              fontSize: '44px',
-              fontWeight: 900,
-              borderRadius: '4px',
+              borderRadius: '999px',
             }}
           >
-            M
           </div>
         </div>
 
@@ -110,7 +98,7 @@ export default function Image() {
               textTransform: 'uppercase',
             }}
           >
-            thedcminute
+            <span style={{ color: '#f04438', marginRight: '18px' }}>THE</span> MINUTE FEED
           </span>
         </div>
 
@@ -123,7 +111,7 @@ export default function Image() {
             margin: 0,
           }}
         >
-          Authoritative Reporting on US Governance, Policy, Defense &amp; Global Affairs
+          Fast, clear, independent. News that respects your time.
         </p>
 
         {/* Bottom URL */}
@@ -139,7 +127,7 @@ export default function Image() {
             letterSpacing: '0.1em',
           }}
         >
-          thedcminute.com
+          theminutefeed.com
         </div>
       </div>
     ),

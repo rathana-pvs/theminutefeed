@@ -4,7 +4,7 @@ import fs from 'fs'
 import path from 'path'
 
 const seed = async () => {
-  console.log('🚀 Starting thedcminute Database Seed...')
+  console.log('🚀 Starting The Minute Feed Database Seed...')
   const payload = await getPayload({ config })
 
   // 1. Clear existing data
@@ -31,7 +31,7 @@ const seed = async () => {
 
   // 2. Ensure Admin User
   console.log('\n👤 Ensuring Admin User...')
-  const adminEmail = 'admin@thedcminute.com'
+  const adminEmail = 'admin@theminutefeed.com'
   const adminPassword = 'adminpassword123'
 
   const existingAdmin = await payload.find({
@@ -45,7 +45,7 @@ const seed = async () => {
       data: {
         email: adminEmail,
         password: adminPassword,
-        name: 'thedcminute Admin',
+        name: 'The Minute Feed Admin',
         role: 'admin',
       },
     })
@@ -64,20 +64,20 @@ const seed = async () => {
   const seedData = JSON.parse(fs.readFileSync(seedPath, 'utf-8'))
   const authors = (seedData.authors || []).map((author: any) => ({
     ...author,
-    name: author.name?.replace(/InstantlyFeed/gi, 'thedcminute'),
-    slug: author.slug?.replace(/(?:pulefeed-stuff|instantlyfeed-editorial)/gi, 'thedcminute-newsroom'),
-    bio: author.bio?.replace(/InstantlyFeed/gi, 'thedcminute'),
-    email: author.email?.replace(/(?:instantlyfeed|uspolicybrief)\.com$/i, 'thedcminute.com'),
+    name: author.name?.replace(/(?:InstantlyFeed|Pulefeed|The DC Minute)/gi, 'The Minute Feed'),
+    slug: author.slug?.replace(/(?:pulefeed-stuff|instantlyfeed-editorial|pulefeed-editorial)/gi, 'theminutefeed-newsroom'),
+    bio: author.bio?.replace(/(?:InstantlyFeed|Pulefeed|The DC Minute)/gi, 'The Minute Feed'),
+    email: author.email?.replace(/(?:instantlyfeed|pulefeed|uspolicybrief|thedcminute)\.(?:com|tech)$/i, 'theminutefeed.com'),
   }))
   const articles = (seedData.articles || []).map((article: any) => ({
     ...article,
-    credit: article.credit?.replace(/InstantlyFeed/gi, 'thedcminute'),
+    credit: article.credit ? article.credit.replace(/(?:InstantlyFeed|Pulefeed|The DC Minute)/gi, 'The Minute Feed') : 'The Minute Feed Wire Service',
     author: article.author && {
       ...article.author,
-      name: article.author.name?.replace(/InstantlyFeed/gi, 'thedcminute'),
-      slug: article.author.slug?.replace(/(?:pulefeed-stuff|instantlyfeed-editorial)/gi, 'thedcminute-newsroom'),
-      bio: article.author.bio?.replace(/InstantlyFeed/gi, 'thedcminute'),
-      email: article.author.email?.replace(/(?:instantlyfeed|uspolicybrief)\.com$/i, 'thedcminute.com'),
+      name: article.author.name?.replace(/(?:InstantlyFeed|Pulefeed|The DC Minute)/gi, 'The Minute Feed'),
+      slug: article.author.slug?.replace(/(?:pulefeed-stuff|instantlyfeed-editorial|pulefeed-editorial)/gi, 'theminutefeed-newsroom'),
+      bio: article.author.bio?.replace(/(?:InstantlyFeed|Pulefeed|The DC Minute)/gi, 'The Minute Feed'),
+      email: article.author.email?.replace(/(?:instantlyfeed|pulefeed|uspolicybrief|thedcminute)\.(?:com|tech)$/i, 'theminutefeed.com'),
     },
   }))
   console.log(`📦 Loaded ${articles.length} articles and ${authors.length} authors from seed file`)
@@ -97,7 +97,7 @@ const seed = async () => {
       slug: author.slug,
       bio: author.bio || '',
       role: author.role || 'Staff Reporter',
-      email: author.email || 'news@thedcminute.com',
+      email: author.email || 'news@theminutefeed.com',
     }
 
     if (existing.docs.length === 0) {
@@ -173,7 +173,7 @@ const seed = async () => {
     }
 
     // Author ID resolution
-    const authorSlug = art.author?.slug || 'thedcminute-newsroom'
+    const authorSlug = art.author?.slug || 'theminutefeed-newsroom'
     const resolvedAuthorId = authorMap[authorSlug] || Object.values(authorMap)[0]
 
     // Create Article Record
@@ -190,7 +190,7 @@ const seed = async () => {
       isFeatured: !!art.isFeatured,
       publishedAt: art.publishedAt,
       readTime: art.readTime || 3,
-      credit: art.credit || 'thedcminute Wire Service',
+      credit: art.credit || 'The Minute Feed Wire Service',
       og: art.og || {
         metaTitle: art.title,
         metaDescription: art.excerpt,
@@ -215,7 +215,7 @@ const seed = async () => {
   }
 
   console.log(`\n==============================================`)
-  console.log(`🎉 thedcminute Seed Completed Successfully!`)
+  console.log(`🎉 The Minute Feed Seed Completed Successfully!`)
   console.log(`- Total Articles Seeded: ${successCount} / ${articles.length}`)
   console.log(`- Admin Credentials: ${adminEmail} / ${adminPassword}`)
   console.log(`==============================================\n`)

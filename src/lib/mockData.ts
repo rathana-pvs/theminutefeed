@@ -12,33 +12,33 @@ export const mockCategories: Record<string, Category> = {
 export const mockAuthors: Author[] = [
   {
     "id": "author-1",
-    "name": "thedcminute Newsroom",
-    "slug": "thedcminute-newsroom",
+    "name": "The Minute Feed Newsroom",
+    "slug": "theminutefeed-newsroom",
     "role": "International News Network",
     "bio": "Latest news, analysis and features from Al Jazeera's global network.",
     "avatar": {
       "id": "media-a1",
       "filename": "avatar.jpg",
       "url": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=400&auto=format&fit=crop",
-      "alt": "thedcminute Newsroom"
+      "alt": "The Minute Feed Newsroom"
     },
-    "twitter": "thedcminute",
+    "twitter": "theminutefeed",
     "email": "news@aljazeera.net"
   },
   {
     "id": "author-2",
-    "name": "thedcminute Editorial Desk",
-    "slug": "thedcminute-editorial",
+    "name": "The Minute Feed Editorial Desk",
+    "slug": "theminutefeed-editorial",
     "role": "Senior Newsroom Desk",
-    "bio": "Latest breaking political and international reporting from the thedcminute news team.",
+    "bio": "Latest breaking political and international reporting from The Minute Feed news team.",
     "avatar": {
       "id": "media-a2",
       "filename": "avatar.jpg",
       "url": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=400&auto=format&fit=crop",
-      "alt": "thedcminute Editorial Desk"
+      "alt": "The Minute Feed Editorial Desk"
     },
-    "twitter": "thedcminute",
-    "email": "news@thedcminute.com"
+    "twitter": "theminutefeed",
+    "email": "news@theminutefeed.com"
   }
 ]
 
@@ -1958,10 +1958,10 @@ export const mockArticles: Article[] = legacyMockArticles.map((article) => ({
   author: article.author && typeof article.author === 'object'
     ? {
         ...article.author,
-        name: article.author.name.replace(/InstantlyFeed/gi, 'thedcminute'),
-        slug: article.author.slug.replace(/(?:pulefeed-stuff|instantlyfeed-editorial)/gi, 'thedcminute-newsroom'),
-        bio: article.author.bio?.replace(/InstantlyFeed/gi, 'thedcminute'),
-        email: article.author.email?.replace(/(?:instantlyfeed|uspolicybrief)\.com$/i, 'thedcminute.com'),
+        name: article.author.name.replace(/InstantlyFeed/gi, 'The Minute Feed'),
+        slug: article.author.slug.replace(/(?:pulefeed-stuff|instantlyfeed-editorial)/gi, 'theminutefeed-newsroom'),
+        bio: article.author.bio?.replace(/InstantlyFeed/gi, 'The Minute Feed'),
+        email: article.author.email?.replace(/(?:instantlyfeed|uspolicybrief)\.com$/i, 'theminutefeed.com'),
       }
     : article.author,
 }))

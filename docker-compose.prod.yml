@@ -4,18 +4,18 @@ services:
     image: postgres:15-alpine
     restart: always
     environment:
-      POSTGRES_USER: ${POSTGRES_USER:-thedcminute}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-thedcminute123}
-      POSTGRES_DB: ${POSTGRES_DB:-thedcminute}
+      POSTGRES_USER: ${POSTGRES_USER:-theminutefeed}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-theminutefeed123}
+      POSTGRES_DB: ${POSTGRES_DB:-theminutefeed}
     volumes:
-      - thedcminute_db_data:/var/lib/postgresql/data
+      - theminutefeed_db_data:/var/lib/postgresql/data
     networks:
       - internal
     # No ports exposed to host — app talks to db via internal network
 
   # ── Next.js + Payload CMS App ─────────────────────────────────────
   app:
-    image: thedcminute:latest
+    image: theminutefeed:latest
     build:
       context: .
       dockerfile: Dockerfile
@@ -23,15 +23,15 @@ services:
     depends_on:
       - db
     environment:
-      DATABASE_URI: postgresql://${POSTGRES_USER:-thedcminute}:${POSTGRES_PASSWORD:-thedcminute123}@db:5432/${POSTGRES_DB:-thedcminute}
+      DATABASE_URI: postgresql://${POSTGRES_USER:-theminutefeed}:${POSTGRES_PASSWORD:-theminutefeed123}@db:5432/${POSTGRES_DB:-theminutefeed}
       PAYLOAD_SECRET: ${PAYLOAD_SECRET}
       CLOUDINARY_CLOUD_NAME: ${CLOUDINARY_CLOUD_NAME}
       CLOUDINARY_API_KEY: ${CLOUDINARY_API_KEY}
       CLOUDINARY_API_SECRET: ${CLOUDINARY_API_SECRET}
       ENABLE_CLOUDINARY: ${ENABLE_CLOUDINARY:-false}
       GOOGLE_GENERATIVE_AI_API_KEY: ${GOOGLE_GENERATIVE_AI_API_KEY}
-      NEXT_PUBLIC_SITE_URL: ${NEXT_PUBLIC_SITE_URL:-https://thedcminute.com}
-      NEXT_PUBLIC_SITE_NAME: ${NEXT_PUBLIC_SITE_NAME:-thedcminute}
+      NEXT_PUBLIC_SITE_URL: ${NEXT_PUBLIC_SITE_URL:-https://theminutefeed.com}
+      NEXT_PUBLIC_SITE_NAME: "${NEXT_PUBLIC_SITE_NAME:-The Minute Feed}"
       NEXT_PUBLIC_GA_ID: ${NEXT_PUBLIC_GA_ID}
       NEXT_PUBLIC_ADS_KEEPER_SITE_ID: ${NEXT_PUBLIC_ADS_KEEPER_SITE_ID}
       NEXT_PUBLIC_ADS_KEEPER_WIDGET_SIDEBAR: ${NEXT_PUBLIC_ADS_KEEPER_WIDGET_SIDEBAR}
@@ -40,7 +40,7 @@ services:
       NEXT_PUBLIC_ADS_KEEPER_WIDGET_UNDER_ARTICLE: ${NEXT_PUBLIC_ADS_KEEPER_WIDGET_UNDER_ARTICLE}
       NEXT_PUBLIC_ADS_KEEPER_WIDGET_FEED: ${NEXT_PUBLIC_ADS_KEEPER_WIDGET_FEED}
     volumes:
-      - thedcminute_media_data:/app/public/media
+      - theminutefeed_media_data:/app/public/media
     networks:
       - internal
       - web
@@ -57,7 +57,7 @@ services:
       - ./nginx/ssl:/etc/nginx/ssl:ro
       - certbot_www:/var/www/certbot:ro
       - certbot_certs:/etc/letsencrypt:ro
-      - thedcminute_media_data:/var/www/media:ro
+      - theminutefeed_media_data:/var/www/media:ro
     depends_on:
       - app
     networks:
@@ -79,7 +79,7 @@ networks:
     driver: bridge
 
 volumes:
-  thedcminute_db_data:
-  thedcminute_media_data:
+  theminutefeed_db_data:
+  theminutefeed_media_data:
   certbot_www:
   certbot_certs:

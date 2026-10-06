@@ -124,7 +124,7 @@ export interface UserAuthOperations {
   };
 }
 /**
- * News articles published on thedcminute.
+ * News articles published by The Minute Feed.
  *
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "articles".

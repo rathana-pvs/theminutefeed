@@ -50,11 +50,11 @@ const nextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'thedcminute.com',
+        hostname: 'theminutefeed.com',
       },
       {
         protocol: 'https',
-        hostname: 'www.thedcminute.com',
+        hostname: 'www.theminutefeed.com',
       },
       {
         protocol: 'https',

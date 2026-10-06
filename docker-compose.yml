@@ -1,16 +1,17 @@
 services:
   db:
     image: postgres:15-alpine
-    container_name: thedcminute-db
+    container_name: theminutefeed-db
     restart: always
     environment:
-      POSTGRES_USER: thedcminute
-      POSTGRES_PASSWORD: thedcminute_pass_123
-      POSTGRES_DB: thedcminute
+      POSTGRES_USER: theminutefeed
+      POSTGRES_PASSWORD: theminutefeed_pass_123
+      POSTGRES_DB: theminutefeed
     ports:
-      - '127.0.0.1:5438:5432'
+      - '127.0.0.1:5440:5432'
     volumes:
-      - thedcminute_db_data:/var/lib/postgresql/data
+      - theminutefeed_db_data:/var/lib/postgresql/data
 
 volumes:
-  thedcminute_db_data:
+  theminutefeed_db_data:
+

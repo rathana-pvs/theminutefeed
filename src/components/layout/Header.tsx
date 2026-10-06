@@ -32,7 +32,7 @@ const menuGroups = [
     ],
   },
   {
-    title: 'thedcminute',
+    title: 'The Minute Feed',
     links: [
       ['About Us', '/about'],
       ['Contact', '/contact'],
@@ -115,13 +115,13 @@ export default function Header() {
           </button>
         </div>
 
-        <Link href="/" className="site-brand-logo" aria-label="thedcminute homepage">
-          <span className="brand-blocks">
-            <span>D</span>
-            <span>C</span>
-            <span>M</span>
+        <Link href="/" className="site-brand-logo" aria-label="The Minute Feed homepage">
+          <span className="brand-mark" aria-hidden="true">
+            <span />
+            <span />
+            <span />
           </span>
-          <span className="brand-wordmark">thedcminute</span>
+          <span className="brand-wordmark"><span>The</span> Minute Feed</span>
         </Link>
 
         <div className="masthead-right" aria-hidden="true" />
@@ -131,12 +131,12 @@ export default function Header() {
         <div className="search-drawer animate-in fade-in duration-200">
           <form className="bbc-container search-form" role="search" onSubmit={handleSearchSubmit}>
             <label className="skip-link" htmlFor="site-search">
-              Search thedcminute
+              Search The Minute Feed
             </label>
             <input
               id="site-search"
               type="search"
-              placeholder="Search policy, news, legislation, audio and video..."
+              placeholder="Search the latest stories, analysis, audio and video..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               autoFocus

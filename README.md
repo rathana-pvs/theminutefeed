@@ -1,16 +1,16 @@
-# thedcminute (DCM)
+# The Minute Feed
 
-An authoritative, high-performance digital news and policy platform engineered for real-time reporting on US governance, congressional legislation, White House policy, defense, and global affairs.
+**News that respects your time.** A fast, clear, independent digital newsroom covering politics, business, technology, culture, climate, and world affairs at [theminutefeed.com](https://theminutefeed.com).
 
-Built with **Next.js 15 (App Router)**, **Payload CMS v3**, **PostgreSQL**, and styled with a modern, high-contrast **BBC-inspired editorial aesthetic**.
+Built with **Next.js 15 (App Router)**, **Payload CMS v3**, and **PostgreSQL**, with a responsive editorial design system and a purpose-built newsroom workflow.
 
 ---
 
 ## 🌟 Key Features
 
 - **Editorial Layout & Design**:
-  - Distinctive 3-Block **`USP`** brand identity with clean, modern typography.
-  - BBC-inspired masthead, breaking news ticker banner, and multi-channel navigation.
+  - Distinctive feed-pulse identity, navy and signal-red palette, and compact wordmark.
+  - Clear masthead, breaking-news ticker, and multi-channel navigation.
   - Compact, ranked **Most Read** sidebar and curated section blocks.
   - Full-width hero coverage, regional beat explorer, and video hub.
 
@@ -65,8 +65,8 @@ DATABASE_URI=postgresql://uspolicybrief:your_secure_password@localhost:5432/uspo
 PAYLOAD_SECRET=your_secure_32_byte_secret
 
 # Site Config
-NEXT_PUBLIC_SITE_URL=https://thedcminute.com
-NEXT_PUBLIC_SITE_NAME=thedcminute
+NEXT_PUBLIC_SITE_URL=https://theminutefeed.com
+NEXT_PUBLIC_SITE_NAME="The Minute Feed"
 NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX
 
 # Gemini AI API
@@ -121,4 +121,4 @@ The Payload Admin Panel is accessible at `/admin`.
 
 ## 🔒 License & Copyright
 
-© 2026 **thedcminute**. All rights reserved.
+© 2026 **The Minute Feed**. All rights reserved.

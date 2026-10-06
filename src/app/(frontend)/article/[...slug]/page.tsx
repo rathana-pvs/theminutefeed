@@ -23,11 +23,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const articleSlug = Array.isArray(rawSlug) ? rawSlug[rawSlug.length - 1] : rawSlug
 
   const article = await getArticle(articleSlug)
-  if (!article) return { title: 'Story Not Found — thedcminute' }
+  if (!article) return { title: 'Story Not Found — The Minute Feed' }
 
   const envUrl = process.env.NEXT_PUBLIC_SITE_URL
-  const siteUrl = envUrl && !envUrl.includes('placeholder.com') ? envUrl : 'https://thedcminute.com'
-  const siteName = process.env.NEXT_PUBLIC_SITE_NAME || 'thedcminute'
+  const siteUrl = envUrl && !envUrl.includes('placeholder.com') ? envUrl : 'https://theminutefeed.com'
+  const siteName = process.env.NEXT_PUBLIC_SITE_NAME || 'The Minute Feed'
   const title = article.meta?.title || article.title
   const description = article.meta?.description || article.excerpt
   const ogImageUrl = getMediaUrl(article.coverImage)
@@ -75,8 +75,8 @@ export default async function ArticlePage({ params }: PageProps) {
   }
 
   const envUrl = process.env.NEXT_PUBLIC_SITE_URL
-  const siteUrl = envUrl && !envUrl.includes('placeholder.com') ? envUrl : 'https://thedcminute.com'
-  const siteName = process.env.NEXT_PUBLIC_SITE_NAME || 'thedcminute'
+  const siteUrl = envUrl && !envUrl.includes('placeholder.com') ? envUrl : 'https://theminutefeed.com'
+  const siteName = process.env.NEXT_PUBLIC_SITE_NAME || 'The Minute Feed'
 
   if (trackingKey) {
     fetch(`${siteUrl}/api/track-share-link?key=${encodeURIComponent(trackingKey)}`, {

@@ -10,11 +10,11 @@ import { Article } from '@/types'
 import { mockArticles } from '@/lib/mockData'
 import { getMediaUrl } from '@/lib/utils'
 
-const siteName = process.env.NEXT_PUBLIC_SITE_NAME || 'thedcminute'
+const siteName = process.env.NEXT_PUBLIC_SITE_NAME || 'The Minute Feed'
 
 export const metadata: Metadata = {
-  title: `${siteName} — Real-Time US Policy, Governance & World News`,
-  description: 'Fast, authoritative reporting on US policy, congress, White House governance, global affairs, and economy.',
+  title: `${siteName} — News that respects your time`,
+  description: 'Fast, clear reporting on politics, business, technology, culture, climate, and the world—with the context that matters.',
 }
 
 export const revalidate = 60

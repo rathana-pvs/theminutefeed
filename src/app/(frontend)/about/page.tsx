@@ -2,15 +2,15 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'About Us — thedcminute',
-  description: 'Authoritative, independent reporting on US policy, governance, legislation, defense, and global affairs. Learn about our mission and editorial standards.',
+  title: 'About Us — The Minute Feed',
+  description: 'Meet The Minute Feed and learn how we deliver fast, clear, independent reporting without sacrificing context or accuracy.',
 }
 
 export default async function AboutPage() {
   const stats = [
     { number: '15+', label: 'Years of Reporting' },
     { number: '200K+', label: 'Daily Readers' },
-    { number: '40+', label: 'Policy Beats' },
+    { number: '40+', label: 'Editorial Beats' },
     { number: '100%', label: 'Editorial Independence' },
   ]
 
@@ -27,8 +27,8 @@ export default async function AboutPage() {
     },
     {
       num: '03',
-      title: 'Authoritative Policy Analysis',
-      body: 'We delve into complex legislative drafts, judicial opinions, and executive actions to explain the real-world implications for citizens.',
+      title: 'Context in Every Minute',
+      body: 'We distill complex events without flattening them, giving readers the essential facts, the stakes, and a clear path to deeper reporting.',
     },
     {
       num: '04',
@@ -42,8 +42,8 @@ export default async function AboutPage() {
     },
     {
       num: '06',
-      title: 'Global Geopolitical Context',
-      body: 'American policy does not occur in a vacuum. We connect domestic governance with worldwide alliances, markets, and defense developments.',
+      title: 'A Connected World View',
+      body: 'Politics, markets, technology, culture, and climate are interconnected. Our coverage shows readers how one story shapes the next.',
     },
   ]
 
@@ -102,10 +102,10 @@ export default async function AboutPage() {
     <div className="bbc-container category-page">
       {/* ── HEADER BLOCK (Matching Category Title Block) ── */}
       <header className="category-title-block">
-        <span className="story-kicker">thedcminute · Independent Journalism</span>
+        <span className="story-kicker">The Minute Feed · Independent Journalism</span>
         <h1 className="category-title">About Us</h1>
         <p className="category-description">
-          Authoritative reporting and non-partisan analysis on US policy, congress, governance, and global affairs.
+          Fast, clear, independent reporting for people who want to understand the world without living in the news cycle.
         </p>
       </header>
 
@@ -133,15 +133,15 @@ export default async function AboutPage() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           <div className="lg:col-span-5">
             <blockquote className="font-serif italic text-2xl md:text-3xl text-[var(--ink)] leading-snug pl-4 border-l-4 border-[var(--bbc-red)]">
-              "We believe that accurate, data-driven, and unspun information is a fundamental right of every citizen in a free society."
+              "Your time is limited. Your understanding of the world should not be."
             </blockquote>
           </div>
           <div className="lg:col-span-7 space-y-4 text-base text-[#1f1f1f] leading-relaxed">
             <p>
-              thedcminute was founded on a simple conviction: in a healthy society, citizens need access to verifiable, unbiased facts to evaluate legislation and hold power accountable.
+              The Minute Feed was founded on a simple conviction: staying informed should not require endless scrolling. We make the essential facts clear, useful, and easy to follow.
             </p>
             <p>
-              In an era of algorithm-driven feeds and partisan amplification, we refuse to optimize for outrage. Every article, briefing, and analysis piece is authored and verified by journalists committed to truth, depth, and public interest.
+              In an era of algorithm-driven feeds and partisan amplification, we refuse to optimize for outrage. Every briefing and analysis is built for speed, verified for accuracy, and grounded in public interest.
             </p>
             <div className="pt-2 flex flex-wrap gap-3">
               <Link
@@ -249,10 +249,9 @@ export default async function AboutPage() {
           href="/contact"
           className="inline-block px-6 py-3 bg-[var(--bbc-red)] text-white text-xs font-bold uppercase tracking-widest hover:bg-[#900] transition-colors"
         >
-          Contact thedcminute
+          Contact The Minute Feed
         </Link>
       </div>
     </div>
   )
 }
-

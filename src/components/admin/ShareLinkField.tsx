@@ -3,7 +3,7 @@
 import { useFormFields } from '@payloadcms/ui'
 import React, { useState } from 'react'
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://thedcminute.com'
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://theminutefeed.com'
 
 export const ShareLinkField: React.FC = () => {
   const slug = useFormFields(([fields]) => fields?.slug?.value as string | undefined)

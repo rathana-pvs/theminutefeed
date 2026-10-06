@@ -31,8 +31,8 @@ export function VisitorCounter() {
     const timeoutId = setTimeout(() => {
       // Prioritize the actual article <h1> headline, then document.title
       const h1Text = document.querySelector('h1')?.textContent?.trim()
-      const rawTitle = h1Text || document.title || 'thedcminute'
-      const cleanTitle = rawTitle.replace(/\s*—\s*thedcminute.*$/i, '').trim()
+      const rawTitle = h1Text || document.title || 'The Minute Feed'
+      const cleanTitle = rawTitle.replace(/\s*—\s*The Minute Feed.*$/i, '').trim()
       
       const pageTitle = encodeURIComponent(cleanTitle.substr(0, 80).replace(/(\?=)|(\/)/g, ''))
       const pageUrl = encodeURIComponent(window.location.href)
